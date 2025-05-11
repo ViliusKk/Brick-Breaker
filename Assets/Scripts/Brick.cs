@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,12 @@ using UnityEngine;
 public class Brick : MonoBehaviour
 {
     public int health = 1;
+    GameManager manager;
+
+    private void Start()
+    {
+        manager = GameObject.FindObjectOfType<GameManager>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,6 +20,7 @@ public class Brick : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            manager.AddScore();
         }
     }
 }

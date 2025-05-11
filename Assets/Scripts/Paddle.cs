@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public float minX = -7.5f;
-    public float maxX = 7.5f;
+    public float minX = -2.25f;
+    public float maxX = 2.25f;
     public float yPos = -4f;
     void Update()
     {
