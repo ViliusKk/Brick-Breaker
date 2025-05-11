@@ -8,6 +8,9 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rb;
     private bool launched = false;
 
+    public AudioSource hitSound;
+    public AudioSource popSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,15 +27,9 @@ public class Ball : MonoBehaviour
         }
     }
 
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     Vector2 velocity = rb.velocity;
-    //     float speed = rb.velocity.magnitude;
-    //
-    //     if (Mathf.Abs(velocity.y) < 0.2f)
-    //     {
-    //         velocity.y = (velocity.y >= 0) ? 0.3f : -0.3f;
-    //         rb.velocity = velocity.normalized * speed;
-    //     }
-    // }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Brick")) popSound.Play();
+        else hitSound.Play();
+    }
 }
