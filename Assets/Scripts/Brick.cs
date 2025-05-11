@@ -10,7 +10,7 @@ public class Brick : MonoBehaviour
 
     private void Start()
     {
-        manager = GameObject.FindObjectOfType<GameManager>();
+        manager = FindObjectOfType<GameManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
